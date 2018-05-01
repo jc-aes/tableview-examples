@@ -12,6 +12,9 @@ This is an example for providing long press and swipe to delete table view items
 
 This is an example that has a specialized kind of table view which needs the delete functionality but has a slightly different content of rows that may be of a type that should not be deleted. For example, if you have add buttons on the bottom of each section, you probably do not wish for those rows to be removed. This class provides a way to determine whether or not a row should be allowed to be deleted or not. In my case, it happened to be for Add Rows, so that's the rationale for the naming.
 
+Discussion: While it seems like AESListTableAddRowVC could have been derived from AESListTableVC, almost all of the methods would have been overridden anyway, and I wasn't sure how else the classes might diverge in the future. Therefore I made a design decision to keep them as both derived classes of AESViewControllerTableDelegate. It certainly did not seem like a clear cut fit as a subclass, and I preferred not to have too many nested levels.
+
+
 ## Notes
 
 These examples provide a hierarchy of subclasses that help keep an app's appearance uniform as well as provide common functionality to view controllers. It's advisable to keep subclasses to a maximum of 3 to 5 layers due to the complexity it can cause for readability and maintainability of the code (reference Code Complete by Steve McConnell).
